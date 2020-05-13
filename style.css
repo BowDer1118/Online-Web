@@ -1,0 +1,133 @@
+body{
+    /*讓背景完全被撲滿(預設保留左右各8px)*/
+    margin:0px;
+    font-family:"微軟正黑體","新細明體";
+    
+}
+.header{
+    font-size:60px;color:white;
+    font-weight:bold;
+    text-align:center;
+    background-color:#223344;
+    padding:30px 0px;
+}
+/*CSS Meida Quary*/
+@media (max-width:500px){
+/*當螢幕寬度低於500px時，額外套用這個區塊的設定。*/
+    .header{
+        font-size:25px;
+    }
+}
+.nav{
+    font-size:24px;
+    text-align:center;
+    /*讓height與line-height等高*/
+    height:50;
+    line-height:50px;
+}
+@media (max-width:500px){
+    /*當螢幕寬度低於500px時，額外套用這個區塊的設定。*/    
+    /*
+    .nav{
+            font-size:20px;
+        }
+    }
+    */
+    .nav{
+    /*讓超出的物件，不要往下排列。*/
+        white-space:nowrap;
+    /*讓超出的物件可以被畫面拖移顯示。
+        "overflow-x:scroll"(如果超出畫面)產生卷軸;
+        "overflow-x:auto"(如果超出畫面)自動判斷是否使用卷軸*/
+        overflow-x:auto;
+    }
+}
+/*階層式選擇器(更明確)*/
+.nav>.item{
+    padding:10px;
+    /*調整游標樣式*/
+    cursor:pointer;
+}
+@media (max-width:500px){
+    /*當螢幕寬度低於500px時，額外套用這個區塊的設定。*/
+        .nav{
+            font-size:18px;       
+        }
+        .nav>.item{
+            padding:10px 5px;
+        }
+    }
+/*虛擬選擇器，和其他選擇器搭配*/
+/*用hover使滑鼠移動到此位置時，產生變化。*/
+.nav>.item:hover{
+    background-color: #dddddd
+}
+.visual{
+    height:400px;line-height:500px;
+    /*用"url(圖檔名稱)"調用檔案*/
+    background-image:url(backgroundphoto1920x500.png);
+    /*調整圖片顯示位置*/
+    background-position: center center;
+     /*調整圖片比例*/
+    background-size:cover;
+}
+/*一般桌機螢幕寬度為1200px*/
+/*一般手機螢幕寬度為360px*/
+/*CSS排版工具:flexbox*/
+.content{
+    /*用"dispaly:flex"將區域合併*/
+    /*用"dispaly:flex"content中的left(左區塊)與right(右區塊)並排*/
+    display:flex;
+    /*用"justify-content"區塊的左右對其*/
+    justify-content:center;
+    /*align-itmes區塊的垂直對其*/
+    align-items:center;
+}
+.content>.left{
+    width:600px;
+    text-align:right;
+}
+.content>.right{
+    width:400px;
+}
+.content>.left>.head{
+ width:600px;height:400px;
+ /*border-radius代表緣角*/
+ border-radius:30px;
+}
+@media (max-width:1000px){
+    .content{
+        /*讓flexbox 中的區塊可以往下掉(因為flex強制為左右並排)*/
+        flex-wrap:wrap;
+    }
+    .content>.left{
+        /*縮小畫面比例*/
+        width:100%;
+    }
+    .content>.left>.head{
+        width:100%;height:auto;
+    }
+    .content>.right{
+        width:95%;
+    }
+    
+}
+
+
+.content>.right>.title{
+    font-weight:bolder;
+    font-size:40px;
+    line-height:300px;
+
+}
+.content>.right>.title>.intro{
+    font-weight:bolder;
+    font-size:30px;
+    line-height:100px;
+}
+.footer{
+    background-color:#223344;
+    color:white;font-size:20px;
+    padding:40px 0px;
+    text-align:center;
+}
